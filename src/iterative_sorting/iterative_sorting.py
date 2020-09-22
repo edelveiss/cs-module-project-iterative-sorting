@@ -65,22 +65,26 @@ def isNegativeElement(arr):
 
 
 def counting_sort(arr, maximum=0): #O(n + c)
+    #Find out the maximum element  from the given array if maximum is not provided.
     if maximum == 0 and arr != []:
         maximum = max(arr)
 
     if isNegativeElement(arr):
         return "Error, negative numbers not allowed in Count Sort"
 
+    #Initialize an array of length max+1 with all elements 0. This array is used for storing the count of the elements in the array.
     count_arr = [0]*(maximum +1)
     output = [0]*len(arr)
 
+    #Store the count of each element at their respective index in count array
     for i in range(0, maximum + 1):
         count_arr[i] = arr.count(i)
     
-    for i in range(0, maximum + 1):
-        if i != 0:
+    #Store cumulative sum of the elements of the count array. It helps in placing the elements into the correct index of the sorted array.
+    for i in range(1, maximum + 1):
             count_arr[i] += count_arr[i-1] 
     
+    #Find the index of each element of the original array in the count array. This gives the cumulative count. 
     for i in range(len(arr)):
         output[count_arr[arr[i]] - 1] = arr[i]
         count_arr[arr[i]] -= 1
