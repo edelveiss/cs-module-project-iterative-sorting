@@ -1,6 +1,7 @@
 import unittest
 import random
-from iterative_sorting import *
+# from iterative_sorting import *
+from iterative_sorting import selection_sort, bubble_sort, counting_sort
 
 class IterativeSortingTest(unittest.TestCase):
     def test_selection_sort(self):
