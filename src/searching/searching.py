@@ -15,6 +15,7 @@ def linear_search(arr, target):
 
 # Write an iterative implementation of Binary Search
 def binary_search(arr, target):
+    # Your code here
     start = 0
     end = len(arr) - 1
     
